@@ -1,5 +1,6 @@
 ﻿using System;
 using xadrez_console.tabuleiro;
+using xadrez_console.xadrez;
 
 namespace xadrez_console
 {
@@ -7,6 +8,8 @@ namespace xadrez_console
     {
         public static void ImprimirTabuleiro(Tabuleiro tabuleiro)
         {
+            Console.Clear();
+
             for (int i=0; i<tabuleiro.Linhas; i++)
             {
                 Console.Write(8 - i + " ");
@@ -42,5 +45,16 @@ namespace xadrez_console
                 Console.ForegroundColor = aux;
             }
         }
+
+        public static PosicaoXadrez LerPosicaoXadrez()
+        {
+            string s = Console.ReadLine();
+
+            char coluna = s[0];
+            int linha = int.Parse(s[1] + "");
+
+            return new PosicaoXadrez(coluna, linha);
+        }
+
     }
 }

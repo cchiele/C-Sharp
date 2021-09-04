@@ -40,6 +40,20 @@ namespace xadrez_console.tabuleiro
             p.Posicao = pos;
         }
 
+        public Peca RetirarPeca(Posicao pos)
+        {
+            if (this.Peca(pos) == null)
+            {
+                return null;
+            }
+
+            Peca aux = this.Peca(pos);
+            aux.Posicao = null;
+            this.Pecas[pos.Linha, pos.Coluna] = null;
+            return aux;
+
+        }
+
         public bool ExistePeca(Posicao pos)
         {
             this.ValidarPosicao(pos);
